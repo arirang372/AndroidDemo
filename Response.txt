@@ -1,0 +1,37 @@
+{
+   "code":200,
+   "memento":"禪",
+   "message":"OK",
+   "requestType":"TELEMATICS_MESSAGING_ENROLLMENT",
+   "response":{
+      "enrollments":[
+         {
+            "enroll":"Y",
+            "preferences":{
+               "policy":"N",
+               "telematics":"Y",
+               "weather":"N"
+            },
+            "pseudoKey":"WodBenIG0GbA5z8hyBfsy%2bM87N%2fPD4lmUnC0itM9cBk%3d",
+            "type":"Policy",
+            "value":"9024206337"
+         }
+      ],
+      "alerts":[
+         
+      ],
+      "completionCode":"",
+      "correlationId":"",
+      "currentDateTime":"Sep 1, 2020 4:17:50 PM",
+      "errorId":"",
+      "inputFieldDefinitions":[
+         
+      ],
+      "modeForAvailabilityPage":"DISABLED",
+      "navigationOptions":[
+         
+      ],
+      "serviceStatus":"MSG00000",
+      "serviceStatusMessage":""
+   }
+}
