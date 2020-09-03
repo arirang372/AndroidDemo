@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.geico.mobile.android.ace.geicoapppresentation.notificationsettings.mvvm.view.AceNotificationSettingsCallback" />
+
+        <variable
+            name="focusChangeCallback"
+            type="android.view.View.OnFocusChangeListener" />
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoapppresentation.notificationsettings.mvvm.model.AceNotificationSettingsModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/smsNotificationsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="@{!model.shouldShowOnlyDriveEasyAlertOption}">
+
+        <TextView
+            android:id="@+id/smsTextNotificationTitle"
+            style="@style/Heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="SMS Notifications Heading Text"
+            android:text="@string/smsTextNotifications"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/smsTextNotificationInformation"
+            style="@style/Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/smsTextNotificationTitle"
+            android:layout_alignStart="@+id/smsTextNotificationTitle"
+            android:layout_marginBottom="@dimen/default_padding"
+            android:contentDescription="SMS Notifications Information Text"
+            android:text="@string/stayConnectedWithGeicoText"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/mobileNumberFirstTitle"
+            style="@style/Body3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/smsTextNotificationInformation"
+            android:layout_alignStart="@+id/mobileNumberFirstLayout"
+            android:layout_marginBottom="@dimen/default_padding_quarter"
+            android:contentDescription="Mobile Number 1 Label"
+            android:labelFor="@id/mobileNumberFirstEditText"
+            android:text="@string/mobileNumber"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:id="@+id/mobileNumberFirstLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobileNumberFirstTitle"
+            android:layout_marginBottom="@dimen/default_padding_half"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <com.geico.mobile.android.ace.geicoapppresentation.framework.widget.AcePhoneNumberFormattingEditText
+                android:id="@+id/mobileNumberFirstEditText"
+                style="@style/PhoneEditText"
+                onFocusChange="@{focusChangeCallback}"
+                validityState="@{model.phoneNumberOneValidityState}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"
+                android:contentDescription="Mobile Number 1 Edit"
+                android:tag="phone1"
+                android:text="@={model.phoneNumberOne}"
+                android:textAppearance="@style/Body3"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mobileNumberSecondTitle"
+            style="@style/Body3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobileNumberFirstLayout"
+            android:layout_alignStart="@+id/mobileNumberFirstLayout"
+            android:layout_marginBottom="@dimen/default_padding_quarter"
+            android:contentDescription="Mobile Number 2 Label"
+            android:labelFor="@id/mobileNumberSecondEditText"
+            android:text="@string/mobileNumber"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:id="@+id/mobileNumberSecondEditLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobileNumberSecondTitle"
+            android:layout_marginBottom="@dimen/default_padding_half"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <com.geico.mobile.android.ace.geicoapppresentation.framework.widget.AcePhoneNumberFormattingEditText
+                android:id="@+id/mobileNumberSecondEditText"
+                style="@style/PhoneEditText"
+                onFocusChange="@{focusChangeCallback}"
+                validityState="@{model.phoneNumberTwoValidityState}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"
+                android:contentDescription="Mobile Number 2 Edit"
+                android:tag="phone2"
+                android:text="@={model.phoneNumberTwo}"
+                android:textAppearance="@style/Body3"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mobileNumberThirdTitle"
+            style="@style/Body3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobileNumberSecondEditLayout"
+            android:layout_alignStart="@+id/mobileNumberFirstLayout"
+            android:layout_marginBottom="@dimen/default_padding_quarter"
+            android:contentDescription="Mobile Number 3 Label"
+            android:labelFor="@id/mobileNumberThirdEditText"
+            android:text="@string/mobileNumber"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:id="@+id/mobileNumberThirdEditLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobileNumberThirdTitle"
+            android:layout_marginBottom="@dimen/default_padding"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <com.geico.mobile.android.ace.geicoapppresentation.framework.widget.AcePhoneNumberFormattingEditText
+                android:id="@+id/mobileNumberThirdEditText"
+                style="@style/PhoneEditText"
+                onFocusChange="@{focusChangeCallback}"
+                validityState="@{model.phoneNumberThreeValidityState}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"
+                android:contentDescription="Mobile Number 3 Edit"
+                android:tag="phone3"
+                android:text="@={model.phoneNumberThree}"
+                android:textAppearance="@style/Body3"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/smsTextTerms"
+            style="@style/Body2"
+            linkifyOnClick="@{callback::onTermsAndConditionsClick}"
+            linkifyPattern="@{@string/termsAndConditionsAmpersand}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobileNumberThirdEditLayout"
+            android:layout_alignStart="@+id/smsTextNotificationTitle"
+            android:contentDescription="SMS Terms And Conditions Text"
+            android:text="@string/reviewOurTermsAndConditions"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+</layout>

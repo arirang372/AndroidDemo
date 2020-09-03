@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoapppresentation.notificationsettings.mvvm.model.AceNotificationSettingsModel" />
+
+        <variable
+            name="callback"
+            type="com.geico.mobile.android.ace.geicoapppresentation.notificationsettings.mvvm.view.AceNotificationSettingsCallback" />
+
+        <variable
+            name="focusChangeCallback"
+            type="android.view.View.OnFocusChangeListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="@{!model.shouldShowOnlyDriveEasyAlertOption}"
+        android:layout_marginBottom="@dimen/email_notifications_spacing">
+
+        <TextView
+            android:id="@+id/emailNotificationTitle"
+            style="@style/Heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_padding_quarter"
+            android:contentDescription="Email Notifications Heading Text"
+            android:text="@string/emailNotifications"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/emailAddressTitle"
+            style="@style/Body3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/emailNotificationTitle"
+            android:layout_alignStart="@id/emailAddressLayout"
+            android:layout_marginBottom="@dimen/default_padding_quarter"
+            android:contentDescription="Email Address Label"
+            android:labelFor="@id/emailAddressEditText"
+            android:text="@string/emailAddress"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:id="@+id/emailAddressLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailAddressTitle"
+            android:layout_marginBottom="@dimen/default_padding_half"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/emailAddressEditText"
+                onFocusChange="@{focusChangeCallback}"
+                validityState="@{model.emailAddressValidityState}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:contentDescription="Email Address Edit"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:tag="email"
+                android:text="@={model.emailAddress}"
+                android:textAppearance="@style/Body3"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/emailNotificationTypeTitle"
+            style="@style/Heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/emailAddressLayout"
+            android:layout_marginBottom="@dimen/default_margin_quarter"
+            android:text="@string/emailNotificationType" />
+
+        <RelativeLayout
+            android:id="@+id/emailNotificationProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailNotificationTypeTitle"
+            android:layout_alignStart="@+id/emailNotificationTitle"
+            android:layout_marginBottom="@dimen/default_padding_three_quarter">
+
+            <CheckBox
+                android:id="@+id/emailProductsCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:checked="@={model.isEnrolledInProductEmails}"
+                android:contentDescription="Email Products Checkbox"
+                android:onClick="@{() -> callback.onEmailProductsCheckBoxClick()}"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/emailProductsHeading"
+                style="@style/Body3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/emailProductsCheckBox"
+                android:contentDescription="Email Products Checkbox Label"
+                android:labelFor="@id/emailProductsCheckBox"
+                android:text="@string/products"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/emailProductsInformation"
+                style="@style/Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emailProductsHeading"
+                android:layout_toEndOf="@+id/emailProductsCheckBox"
+                android:contentDescription="Email Products Description Text"
+                android:text="@string/informationAboutAdditional"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/emailpolicyServicesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailNotificationProducts"
+            android:layout_alignStart="@+id/emailNotificationTitle"
+            android:layout_marginBottom="@dimen/default_padding_three_quarter">
+
+            <CheckBox
+                android:id="@+id/policyServicesCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:checked="@={model.isEnrolledInPolicyServiceEmails}"
+                android:contentDescription="Email Policy Services Checkbox"
+                android:onClick="@{() -> callback.onPolicyServicesCheckBoxClick()}"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/policyServicesHeading"
+                style="@style/Body3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/policyServicesCheckBox"
+                android:contentDescription="Email Policy Services Checkbox Label"
+                android:labelFor="@id/policyServicesCheckBox"
+                android:text="@string/policyServices"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/emailpolicyServicesInformation"
+                style="@style/Body2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/policyServicesHeading"
+                android:layout_toEndOf="@+id/policyServicesCheckBox"
+                android:contentDescription="Email Policy Services Description Text"
+                android:text="@string/notificationsAboutManagingPolicy"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/emailNewsletterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailpolicyServicesLayout"
+            android:layout_alignStart="@+id/emailNotificationTitle"
+            android:layout_marginBottom="@dimen/default_padding_three_quarter">
+
+            <CheckBox
+                android:id="@+id/newsletterCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:checked="@={model.isEnrolledInNewsletterEmails}"
+                android:contentDescription="Email Newsletter Checkbox"
+                android:onClick="@{() -> callback.onNewsletterCheckBoxClick()}"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/emailNewsletterHeading"
+                style="@style/Body3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/newsletterCheckBox"
+                android:contentDescription="Email Newsletter Checkbox Label"
+                android:labelFor="@id/newsletterCheckBox"
+                android:text="@string/newsletter"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/newsletterInformation"
+                style="@style/Body2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emailNewsletterHeading"
+                android:layout_toEndOf="@+id/newsletterCheckBox"
+                android:contentDescription="Email Newsletter Description Text"
+                android:text="@string/newslettersFromGeico"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/specialOffersLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailNewsletterLayout"
+            android:layout_marginBottom="@dimen/default_padding">
+
+            <CheckBox
+                android:id="@+id/specialOffersCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:checked="@={model.isEnrolledInSpecialOffersEmails}"
+                android:contentDescription="Email Special Offers Checkbox"
+                android:onClick="@{() -> callback.onSpecialOffersCheckBoxClick()}"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/specialOffersHeading"
+                style="@style/Body3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/specialOffersCheckBox"
+                android:contentDescription="Email Special Offers Checkbox Label"
+                android:labelFor="@id/specialOffersCheckBox"
+                android:text="@string/specialOffers"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/specialOffersInformation"
+                style="@style/Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/specialOffersHeading"
+                android:layout_toEndOf="@+id/specialOffersCheckBox"
+                android:contentDescription="Email Special Offers Description Text"
+                android:text="@string/specialOffersInformation"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/specialOffersLayout"
+            android:layout_marginBottom="@dimen/default_padding"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Body3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_padding_quarter"
+                android:contentDescription="Email Notice Heading Text"
+                android:text="@string/emailNotice"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Email Notice Text"
+                android:text="@string/emailNoticeText"
+                android:textAppearance="@style/Body2"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

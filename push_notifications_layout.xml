@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoapppresentation.notificationsettings.mvvm.model.AceNotificationSettingsModel" />
+
+        <variable
+            name="callback"
+            type="com.geico.mobile.android.ace.geicoapppresentation.notificationsettings.mvvm.view.AceNotificationSettingsCallback" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/pushNotificationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/default_padding_half">
+
+        <LinearLayout
+            android:id="@+id/errorMessageLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="@dimen/large_margin"
+            android:layout_marginBottom="@dimen/large_margin"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/error_message_display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/large_margin"
+                bind:errorText="@{model.errorText}" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pushNotificationTitle"
+            style="@style/Heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/errorMessageLayout"
+            android:layout_marginBottom="@dimen/default_padding"
+            android:contentDescription="Push Notifications Heading Text"
+            android:text="@string/pushNotifications"
+            tools:ignore="HardcodedText" />
+
+        <CheckBox
+            android:id="@+id/policyPushNotificationCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pushNotificationTitle"
+            android:visibility="@{!model.shouldShowOnlyDriveEasyAlertOption}"
+            android:layout_alignParentTop="@id/pushNotificationTitle"
+            android:layout_marginEnd="@dimen/default_padding"
+            android:checked="@={model.isEnrolledInPolicyPushNotifications}"
+            android:contentDescription="Push Notifications Checkbox"
+            android:onClick="@{() -> callback.onPolicyPushNotificationEnrollCheckboxClick()}"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/policyPushNotificationSubHeading"
+            style="@style/Body3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{!model.shouldShowOnlyDriveEasyAlertOption}"
+            android:layout_alignBaseline="@id/policyPushNotificationCheckbox"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/policyPushNotificationCheckbox"
+            android:contentDescription="Push Notifications Checkbox Label"
+            android:labelFor="@id/policyPushNotificationCheckbox"
+            android:text="@string/policyAlerts"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/policyPushNotificationAdditionalInfo"
+            style="@style/Body2"
+            bind:visibleInvisible="@{!model.shouldShowOnlyDriveEasyAlertOption}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/policyPushNotificationSubHeading"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/policyPushNotificationCheckbox"
+            android:labelFor="@id/policyPushNotificationCheckbox"
+            android:text="@string/youWillReceivePushNotifications" />
+
+        <RelativeLayout
+            android:id="@+id/telematicsPushNotificationOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/policyPushNotificationAdditionalInfo"
+            android:layout_alignParentTop="@id/policyPushNotificationAdditionalInfo"
+            android:visibility="@{model.shouldShowTelematicsPushNotificationOptions || model.shouldShowOnlyDriveEasyAlertOption}"
+            tools:visibility="visible">
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/half_dp_dimen"
+                android:visibility="@{!model.shouldShowOnlyDriveEasyAlertOption}"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin_half"
+                android:background="@color/lightBeige" />
+
+            <CheckBox
+                android:id="@+id/telematicsPushNotificationCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider2"
+                android:layout_alignParentTop="@id/divider2"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:checked="@={model.isEnrolledInTelematicsPushNotifications}"
+                android:onClick="@{() -> callback.onTelematicsPushNotificationEnrollCheckboxClick()}"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/telematicsPushNotificationSubHeading"
+                style="@style/Body3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/telematicsPushNotificationCheckbox"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/telematicsPushNotificationCheckbox"
+                android:labelFor="@id/telematicsPushNotificationCheckbox"
+                android:text="@string/driveEasyAlerts"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/telematicsPushNotificationAdditionalInfo"
+                style="@style/Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/telematicsPushNotificationSubHeading"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/telematicsPushNotificationCheckbox"
+                android:labelFor="@id/telematicsPushNotificationCheckbox"
+                android:text="@string/youWillReceivePushNotificationsForDriveEasyAlerts" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/telematicsPushNotificationOptions"
+            android:visibility="@{model.shouldShowWeatherPushNotificationOptions &amp;&amp; !model.shouldShowOnlyDriveEasyAlertOption}"
+            tools:visibility="visible">
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/half_dp_dimen"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin_half"
+                android:background="@color/lightBeige" />
+
+            <CheckBox
+                android:id="@+id/weatherNotificationCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider1"
+                android:layout_alignParentTop="@id/divider1"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:checked="@={model.isEnrolledInWeatherPushNotifications}"
+                android:contentDescription=""
+                android:onClick="@{() -> callback.onWeatherPushNotificationEnrollCheckboxClick()}"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/weatherNotificationSubHeading"
+                style="@style/Body3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/weatherNotificationCheckbox"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/weatherNotificationCheckbox"
+                android:contentDescription=""
+                android:labelFor="@id/weatherNotificationCheckbox"
+                android:text="@string/severeWeatherAlertsTitle"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/weatherNotificationAdditionalInfo"
+                style="@style/Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weatherNotificationSubHeading"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/weatherNotificationCheckbox"
+                android:labelFor="@id/weatherNotificationCheckbox"
+                android:text="@string/youWillReceivePushNotificationsForWeatherAlerts" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
