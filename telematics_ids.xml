@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="telematicsDashboardFragment" type="id" />
+    <item name="telematicsDashboardFragmentNavigation" type="id" />
+    <item name="telematicsDisabledFragment" type="id" />
+    <item name="telematicsDisabledFragmentNavigation" type="id" />
+    <item name="telematicsFamilyReportCard" type="id" />
+    <item name="telematicsFamilyReportCardNavigation" type="id" />
+    <item name="telematicsOutageFragment" type="id" />
+    <item name="telematicsOutageFragmentNavigation" type="id" />
+    <item name="telematicsScoreDetails" type="id" />
+    <item name="telematicsScoreDetailsNavigation" type="id" />
+    <item name="telematicsTripDetails" type="id" />
+    <item name="telematicsTripDetailsNavigation" type="id" />
+    <item name="telematicsTripHistory" type="id" />
+    <item name="telematicsTripHistoryNavigation" type="id" />
+    <item name="waitStaller" type="id" />
+</resources>
