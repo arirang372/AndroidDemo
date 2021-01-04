@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.geico.mobile.android.ace.geicoapppresentation.users.usersetting.mvvm.view.AceUserSettingsCallback" />
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoapppresentation.users.usersetting.mvvm.model.AceUserSettingsSectionItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <View
+            android:id="@+id/dividerOne"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/half_dp_dimen"
+            android:background="@color/lightBeige"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin_half"
+            android:text="@{model.label}"
+            android:textAppearance="@style/Heading4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerOne"
+            tools:text="@string/name" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userSettingsText"
+            android:layout_width="@dimen/user_settings_text_edit_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:padding="@dimen/default_margin_half"
+            android:text="@{model.text}"
+            android:textAppearance="@style/Heading4"
+            android:textStyle="normal"
+            android:visibility="@{model.shouldShowUserSettingsText}"
+            app:layout_constraintStart_toEndOf="@id/guidelineOne"
+            app:layout_constraintTop_toBottomOf="@id/dividerOne"
+            tools:text="Kris Johnson"
+            tools:visibility="gone" />
+
+        <com.geico.mobile.android.ace.geicoapppresentation.framework.widget.AcePhoneNumberFormattingEditText
+            android:id="@+id/userSettingsEditText"
+            style="@style/PhoneEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:background="@null"
+            android:hint="@string/mobileNumber"
+            android:padding="@dimen/default_margin_half"
+            android:text="@{model.text}"
+            android:textAppearance="@style/Heading4"
+            android:textStyle="normal"
+            android:visibility="@{model.shouldShowUserSettingsEditText}"
+            app:isValidPhoneNumber="@{model.isValidPhoneNumber}"
+            app:layout_constraintStart_toEndOf="@id/guidelineOne"
+            app:layout_constraintTop_toBottomOf="@id/dividerOne"
+            app:phoneTextWatcher="@{model}"
+            tools:hint="@string/header"
+            tools:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/userSettingsVehicleSpinner"
+            android:layout_width="@dimen/user_settings_spinner_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:onItemSelected="@{(parent,view, position, id) -> callback.onVehicleSpinnerItemSelected(model.vehicles.get(position), position)}"
+            android:selectedItemPosition="@={model.selectedVehiclePosition}"
+            android:textAppearance="@style/Heading4"
+            android:textStyle="normal"
+            android:visibility="@{model.shouldShowVehicleSpinner}"
+            app:callback="@{callback}"
+            app:layout_constraintStart_toEndOf="@id/guidelineOne"
+            app:layout_constraintTop_toBottomOf="@id/dividerOne"
+            app:selectedVehicle="@{model.primaryVehicle}"
+            app:vehicles="@{model.vehicles}"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/userSettingsFuelTypeSpinner"
+            android:layout_width="@dimen/user_settings_spinner_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:onItemSelected="@{(parent,view, position, id) -> callback.onFuelTypeSpinnerItemSelected(model.fuelTypes.get(position))}"
+            android:selectedItemPosition="@={model.selectedFuelTypePosition}"
+            android:textAppearance="@style/Heading4"
+            android:textStyle="normal"
+            android:visibility="@{model.shouldShowFuelTypeSpinner}"
+            app:callback="@{callback}"
+            app:fuelCodes="@{model.fuelTypeCodes}"
+            app:fuelTypes="@{model.fuelTypes}"
+            app:layout_constraintStart_toEndOf="@id/guidelineOne"
+            app:layout_constraintTop_toBottomOf="@id/dividerOne"
+            app:selectedFuelCode="@{model.primaryVehicleFuelCode}"
+            tools:visibility="gone" />
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/userSettingsVehicleColorSpinner"
+            android:layout_width="@dimen/user_settings_spinner_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:onItemSelected="@{(parent,view, position, id) -> callback.onVehicleColorSpinnerItemSelected(model.matchingVehicleColors.get(position))}"
+            android:selectedItemPosition="@={model.selectedVehicleColorPosition}"
+            android:textAppearance="@style/Heading4"
+            android:textStyle="normal"
+            android:visibility="@{model.shouldShowVehicleColorSpinner}"
+            app:callback="@{callback}"
+            app:layout_constraintStart_toEndOf="@id/guidelineOne"
+            app:layout_constraintTop_toBottomOf="@id/dividerOne"
+            app:matchingVehicleColors="@{model.matchingVehicleColors}"
+            app:selectedVehicleColor="@{model.primaryVehicleColor}"
+            app:vehicleColors="@{model.vehicleColors}"
+            tools:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/editUserSettingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_half"
+            android:layout_marginRight="@dimen/default_margin_half"
+            android:onClick="@{()-> callback.onEditUserSettingsButtonClicked()}"
+            android:src="@{model.editUserSettingButtonResource}"
+            android:visibility="@{model.shouldShowEditUserSettingsButton}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userSettingsText"
+            app:layout_constraintTop_toBottomOf="@id/dividerOne"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/dividerTwo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/half_dp_dimen"
+            android:background="@color/lightBeige"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userSettingsText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/users_navigation_graph"
+    app:startDestination="@id/users_fragment">
+
+    <fragment
+        android:id="@+id/users_fragment"
+        android:name="com.geico.mobile.android.ace.geicoapppresentation.users.mvvm.view.AceUsersFragment"
+        android:label="UsersFragment"
+        tools:layout="@layout/new_users_fragment">
+
+        <action
+            android:id="@+id/action_users_fragment_to_user_settings_fragment"
+            app:destination="@id/user_settings_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_settings_fragment"
+        android:name="com.geico.mobile.android.ace.geicoapppresentation.users.mvvm.view.AceUserSettingsFragment"
+        android:label="UserSettingsFragment"
+        tools:layout="@layout/user_settings_fragment" />
+</navigation>
