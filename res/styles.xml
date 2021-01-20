@@ -1,0 +1,903 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme, dependent on API level. This theme is replaced -->
+    <!-- by AppBaseTheme from res/values-vXX/styles.xml on newer devices. -->
+
+    <!-- TYPOGRAPHY -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- M5 Typography -->
+
+    <style name="Heading1" parent="android:TextAppearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Heading1.Inverse" parent="android:TextAppearance.Inverse">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Heading2" parent="Heading1">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Heading2.Inverse" parent="Heading1.Inverse">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Heading3" parent="Heading1">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Heading3.Inverse" parent="Heading1.Inverse">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Heading4" parent="Heading1">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Heading4.GeicoTextColorSecondary" parent="Heading4">
+        <item name="android:textColor">?geicoTextColorSecondary</item>
+    </style>
+
+    <style name="Heading4.GreyGreen" parent="Heading4">
+        <item name="android:textColor">@color/greyGreen</item>
+    </style>
+
+    <style name="Heading4.Inverse" parent="Heading1.Inverse">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Paragraph1" parent="android:TextAppearance" />
+
+    <style name="Paragraph1.Inverse" parent="android:TextAppearance.Inverse" />
+
+    <style name="Paragraph2" parent="Paragraph1">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Paragraph2.Inverse" parent="Paragraph1.Inverse">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- M5 Typography -->
+
+
+    <style name="Body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">?geicoTextColorRegular</item>
+    </style>
+
+    <style name="Body1.DarkGrey">
+        <item name="android:textColor">@color/greyDark</item>
+    </style>
+
+    <style name="Body1.Inverse">
+        <item name="android:textColor">?geicoTextColorRegularInverse</item>
+    </style>
+
+    <style name="Body2" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">?geicoTextColorPrimary</item>
+    </style>
+
+    <style name="Body2.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="Body3" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textColor">?geicoTextColorPrimary</item>
+    </style>
+
+    <style name="Body3.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="amu_Bubble.TextAppearance.Dark" parent="android:TextAppearance.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ff7f7f7f</item>
+    </style>
+
+    <style name="amu_Bubble.TextAppearance.Light" parent="amu_Bubble.TextAppearance.Dark">
+        <item name="android:textColor">#ffeeeeee</item>
+    </style>
+
+    <style name="ButtonAsText" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:padding">0dp</item>
+        <item name="android:background">#00FFFFFF</item>
+    </style>
+
+    <style name="Caption" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">?geicoTextColorCaption</item>
+    </style>
+
+    <style name="Caption.Inverse">
+        <item name="android:textColor">?geicoTextColorCaptionInverse</item>
+    </style>
+
+    <style name="ClaimsRoundedOutlineButton" parent="PrimaryRaisedButton">
+        <item name="android:background">@drawable/rounded_outline_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/primary_raised_button_background</item>
+    </style>
+
+    <style name="amu_ClusterIcon.TextAppearance" parent="android:TextAppearance">
+        <item name="android:textColor">#ffeeeeee</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomDialogLayout">
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="CrossSellRoundedButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAppearance">@style/Subheading1.Bold</item>
+        <item name="android:textColor">@color/blueJay</item>
+        <item name="android:paddingStart">@dimen/extras_margin</item>
+        <item name="android:paddingEnd">@dimen/extras_margin</item>
+        <item name="android:paddingTop">@dimen/default_padding_three_quarter</item>
+        <item name="android:paddingBottom">@dimen/default_padding_three_quarter</item>
+        <item name="cornerRadius">@dimen/default_margin_one_and_half</item>
+        <item name="strokeColor">@color/blueJay</item>
+        <item name="strokeWidth">@dimen/one_dp_dimen</item>
+    </style>
+
+    <style name="CrossSellRoundedButtonTheme" parent="Theme.MaterialComponents.Bridge">
+        <item name="colorPrimary">@color/white</item>
+    </style>
+
+    <style name="CrossSellRoundedOutlineButton" parent="PrimaryRaisedButton">
+        <item name="android:background">@drawable/cross_sell_rounded_outline_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/geicoBlue</item>
+    </style>
+
+    <style name="DestinationsSubtitle" parent="Body1">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DiscountLearnMoreButton" parent="PolicyDashboardButton">
+        <item name="android:background">@drawable/rounded_outline_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/denim</item>
+    </style>
+
+    <style name="Display1" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:textColor">?geicoTextColorPrimary</item>
+    </style>
+
+    <style name="Display1.Colored">
+        <item name="android:textColor">?geicoPrimary</item>
+    </style>
+
+    <style name="Display1.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="DivaDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="DivaDialogTitleText" parent="Title">
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_margin">@dimen/custom_dialog_message_margin</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="DivaDialogTitleText.AlternateBlue" parent="DivaDialogTitleText">
+        <item name="android:textColor">@color/materialBlue</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="ExtrasSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColorPrimary">@color/extrasGrey</item>
+        <item name="android:textColorHint">@color/extrasGrey</item>
+    </style>
+
+    <style name="GabbyDialogWelcomeTitleText">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:padding">@dimen/base_padding</item>
+        <item name="android:textColor">@color/gabbyFirstTimeWelcomeText</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="GabbyDialogWelcomeSubtitleText">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gabbyFirstTimeWelcomeText</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Headline1" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">?geicoTextColorPrimary</item>
+    </style>
+
+    <style name="Headline1.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="Headline2" parent="Headline1">
+        <item name="android:textColor">?geicoPrimary</item>
+    </style>
+
+    <style name="Headline2.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="OnboardingBody" parent="Paragraph2">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/subtitle</item>
+    </style>
+
+    <style name="OnboardingBodySmall" parent="Paragraph2">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="OnboardingTitle" parent="Heading1">
+        <item name="android:textColor">@color/geicoBlue</item>
+    </style>
+
+    <style name="PropertyCardBaseFooterTheme" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/idCardsHeaderTextColor</item>
+        <item name="android:padding">@dimen/property_card_default_padding_quarter</item>
+        <item name="android:layout_marginTop">@dimen/property_card_default_padding_quarter</item>
+        <item name="android:textSize">@dimen/property_card_item_text_size</item>
+    </style>
+
+    <style name="PropertyCardFooterTheme" parent="PropertyCardBaseFooterTheme">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="PropertyCardRowTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">@integer/property_card_row_weight</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:weightSum">3</item>
+    </style>
+
+    <style name="Subheading1" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">?geicoPrimary</item>
+    </style>
+
+    <style name="Subheading1.GeicoTextColorSecondary" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">?geicoTextColorSecondary</item>
+    </style>
+
+    <style name="Subheading1.Black" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Subheading1.Black.Bold" parent="Subheading1.Black">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Subheading1.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Subheading1.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="Subheading2" parent="Subheading1">
+        <item name="android:textSize" tools:ignore="PrivateResource">
+            @dimen/abc_text_size_small_material
+        </item>
+    </style>
+
+
+    <style name="Subheading2.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="Subheading3" parent="Subheading1">
+        <item name="android:textSize" tools:ignore="PrivateResource">
+            @dimen/abc_text_size_caption_material
+        </item>
+    </style>
+
+    <style name="Subheading2.Black" parent="Subheading2">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Subheading2.Black.Bold" parent="Subheading2.Black">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Subheading3.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="Subheading4.Black.Bold" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SpecialOfferHeaderTitle" parent="Body1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+
+    <style name="SpecialOfferSubHeaderTitle" parent="SpecialOfferHeaderTitle">
+        <item name="android:textSize">@dimen/section_header_text</item>
+    </style>
+
+    <style name="Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">?geicoTextColorPrimary</item>
+    </style>
+
+    <style name="Title.Inverse">
+        <item name="android:textColor">?geicoTextColorPrimaryInverse</item>
+    </style>
+
+    <style name="blackBoldMediumTitleText" parent="MediumTitleText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WhatIsNextSubTitle" parent="Paragraph2">
+        <item name="android:singleLine">false</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- BUTTONS -->
+
+    <style name="PersonalizationTitle" parent="MediumTitleText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PolicyDashboardButton" parent="PrimaryRaisedButton">
+        <item name="android:background">@drawable/policy_dashboard_rounded_button</item>
+    </style>
+
+    <style name="PrimaryRaisedButton" parent="PrimaryRaisedButtonBase" />
+
+    <style name="PrimaryRaisedButtonBase" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textAppearance">@style/Subheading1</item>
+        <item name="android:textColor">@color/primary_raised_button_text</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="PrimaryRaisedButton.BillingThankYou" parent="PrimaryRaisedButton">
+        <item name="backgroundTint">@color/yourBillingColor</item>
+    </style>
+
+    <style name="PrimaryRaisedButton.RoadsideAssistance" parent="PrimaryRaisedButton">
+        <item name="backgroundTint">@color/roadSideAssistanceColor</item>
+    </style>
+
+    <style name="RoundedButton" parent="PrimaryRaisedButton">
+        <item name="android:background">@drawable/rounded_button</item>
+    </style>
+
+    <style name="RoundedButton.Onboarding" parent="RoundedButton">
+        <item name="android:layout_margin">@dimen/extra_large_margin</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textAppearance">@style/Heading3</item>
+        <item name="android:textSize">@dimen/onboardingButtonTextSize</item>
+    </style>
+
+    <style name="RoundedButton.Onboarding.Inverse" parent="RoundedButton.Onboarding">
+        <item name="android:background">@drawable/rounded_outline_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/primary_raised_button_background</item>
+    </style>
+
+    <style name="RoundedButton.PhotoEstimate" parent="PrimaryRaisedButton">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="RoundedButtonTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/blueJay</item>
+    </style>
+
+    <style name="TutorialFooterTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/blueJay</item>
+        <item name="android:colorAccent">@color/blueJay</item>
+    </style>
+
+    <style name="RoundedButton.Telematics" parent="RoundedButton">
+        <item name="android:paddingEnd">@dimen/extra_large_padding</item>
+        <item name="android:paddingStart">@dimen/extra_large_padding</item>
+        <item name="android:textAppearance">@style/TelematicsCardDetail</item>
+        <item name="backgroundTint">@color/geicoBlue</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="RoundedButton.Telematics.Inverse" parent="RoundedOutlineButton">
+        <item name="android:paddingEnd">@dimen/extra_large_padding</item>
+        <item name="android:paddingStart">@dimen/extra_large_padding</item>
+        <item name="android:textAppearance">@style/TelematicsCardDetail</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/geicoBlue</item>
+    </style>
+
+    <style name="RoundedInverseButton" parent="RoundedButton">
+        <item name="backgroundTint">@color/primary_raised_button_text</item>
+        <item name="android:textColor">@color/primary_raised_button_background</item>
+    </style>
+
+    <style name="RoundedOutlineButton" parent="PrimaryRaisedButton">
+        <item name="android:background">@drawable/rounded_outline_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/primary_raised_button_background</item>
+    </style>
+
+    <style name="RoundedOutlineTransparentButton" parent="PrimaryRaisedButton">
+        <item name="android:background">@drawable/rounded_outline_transparent_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/primary_raised_button_background</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SurveyButton" parent="PrimaryRaisedButton">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/mainBlue</item>
+    </style>
+
+    <style name="RoadsideAssistanceTabViewButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">
+            @drawable/emergency_roadside_service_process_step_background
+        </item>
+        <item name="android:textAppearance">@style/Caption</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">
+            @drawable/emergency_roadside_service_process_step_text_color_selector
+        </item>
+        <item name="android:textSize">@dimen/era_tab_text</item>
+    </style>
+
+    <style name="SecondaryFlatButton" parent="SecondaryFlatButtonBase" />
+
+    <style name="SecondaryFlatButtonBase" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/secondary_button_text</item>
+    </style>
+
+    <style name="SecondaryFlatButton.ActionBar">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SecondaryFlatButton.BillingThankYou">
+        <item name="android:textColor">@color/yourBillingColor</item>
+    </style>
+
+    <style name="SecondaryFlatButton.DriveEasy">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="SecondaryFlatButton.Login">
+        <item name="android:textColor">?attr/geicoTextColorPrimaryInverse</item>
+        <item name="android:textAppearance">@style/Caption</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TelematicsCardBody" parent="TelematicsCardTextBase">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TelematicsCardDetail" parent="TelematicsCardTextBase">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TelematicsCardHeading">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/geicoBlue</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TelematicsCardScore" parent="TelematicsCardTextBase">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TelematicsCardStreak">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="TelematicsCardSubtitle" parent="TelematicsCardTextBase">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TelematicsCardSupertitle" parent="TelematicsCardTextBase">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TelematicsCardTextBase">
+        <item name="android:textColor">@color/telematicsCardText</item>
+    </style>
+
+    <style name="TelematicsCardTitle" parent="TelematicsCardTextBase">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TelematicsRadioButtonToggle">
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textAppearance">@style/Body2</item>
+        <item name="android:background">@drawable/telematics_toggle_widget_background</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TelematicsScoreFactorMainImage">
+        <item name="android:layout_width">@dimen/telematics_non_driving_factor_main_image_size
+        </item>
+        <item name="android:layout_height">@dimen/telematics_non_driving_factor_main_image_size
+        </item>
+        <item name="android:layout_marginTop">@dimen/default_margin_one_and_half</item>
+    </style>
+
+    <style name="TelematicsScoreFactorSubtitle" parent="TelematicsScoreFactorTitle">
+        <item name="android:textAppearance">@style/Heading4</item>
+    </style>
+
+    <style name="TelematicsScoreFactorText" parent="TelematicsScoreFactorTextBase">
+        <item name="android:layout_marginTop">@dimen/default_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_margin_quarter</item>
+    </style>
+
+    <style name="TelematicsScoreFactorTextBase">
+        <item name="android:layout_width">@dimen/zero_dp_dimen</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/Paragraph1</item>
+        <item name="android:layout_marginTop">@dimen/default_margin_one_and_half</item>
+    </style>
+
+    <style name="TelematicsScoreFactorTipImage">
+        <item name="android:layout_width">@dimen/telematics_non_driving_factor_tip_image_width
+        </item>
+        <item name="android:layout_height">@dimen/telematics_non_driving_factor_tip_image_height
+        </item>
+        <item name="android:layout_marginTop">@dimen/default_margin_one_and_half</item>
+    </style>
+
+    <style name="TelematicsScoreFactorTipText" parent="TelematicsScoreFactorTextBase">
+        <item name="android:layout_marginStart">@dimen/default_margin_half</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin_one_and_half</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TelematicsScoreFactorTitle" parent="TelematicsScoreFactorTextBase">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">@style/Heading3</item>
+    </style>
+
+    <style name="TelematicsScoreNotAvailableText" parent="TelematicsCardTextBase">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TelematicsScoreSeekBar">
+        <item name="android:layout_height">@dimen/telematics_score_bar_height</item>
+        <item name="android:layout_marginTop">@dimen/extra_large_margin</item>
+        <item name="android:layout_marginBottom">@dimen/extra_large_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:max">100</item>
+        <item name="android:paddingStart">@dimen/large_margin</item>
+        <item name="android:paddingEnd">@dimen/large_margin</item>
+        <item name="android:progressDrawable">@color/transparent</item>
+        <item name="android:splitTrack">false</item>
+        <item name="android:thumb">@drawable/telematics_score_bar_indicator</item>
+    </style>
+
+    <style name="TelematicsScoreSeekBar.LargeIndicator" parent="TelematicsScoreSeekBar">
+        <item name="android:layout_marginTop">
+            @dimen/telematics_score_bar_large_thumb_vertical_offset
+        </item>
+        <item name="android:paddingBottom">@dimen/telematics_score_bar_large_thumb_vertical_offset
+        </item>
+        <item name="android:paddingEnd">@dimen/telematics_score_bar_large_thumb_horizontal_offset
+        </item>
+        <item name="android:paddingStart">
+            @dimen/telematics_score_bar_large_thumb_horizontal_offset
+        </item>
+    </style>
+
+    <style name="TelematicsScoreText" parent="TelematicsCardTextBase">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TelematicsSectionScore" parent="TelematicsCardTextBase">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TertiaryRaisedButton" parent="TertiaryRaisedButtonBase" />
+
+    <style name="TertiaryRaisedButtonBase" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/secondary_button_text</item>
+    </style>
+
+    <style name="ActionBarWithoutTitle" parent="@style/AppActionBar">
+        <item name="displayOptions">showHome</item>
+    </style>
+
+    <style name="ActivateAccountGetStartedButton" parent="TertiaryRaisedButton" />
+
+    <style name="AppActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse" />
+
+    <style name="AppActionBarNoShadow" parent="AppActionBar">
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="AuthenticationFailureCallButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@color/geicoBlue</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ContactByPhoneButton" parent="TertiaryRaisedButton">
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="LimitButtonWidth">
+        <!-- Use this style on Linear Layout (as parent) -->
+        <!-- Assign a child with:-->
+        <!--        android:layout_width="0dp" -->
+        <!--        android:layout_weight="1" -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:weightSum">1</item>
+    </style>
+
+    <style name="QuoteRecallButtonWidth" parent="LimitButtonWidth">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:weightSum">1.5</item>
+    </style>
+
+    <style name="WeatherFooterTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/wisteria</item>
+        <item name="android:colorAccent">@color/wisteria</item>
+    </style>
+
+    <style name="LimitToContentWidth">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="LimitToListItemWidth">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!-- PREPARE TO AUTHENTICATE THIRD PARTY CLAIMANT CONTENT -->
+    <style name="ThirdPartyClaimantButton">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="ThirdPartyClaimantContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/default_padding</item>
+    </style>
+
+    <!-- CardView -->
+    <style name="GeicoCardView" parent="GeicoAppBaseTheme">
+        <item name="cardBackgroundColor">?geicoBackground</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="contentPadding">@dimen/default_padding</item>
+        <item name="theme">@style/GeicoCardTheme</item>
+    </style>
+
+    <style name="GeicoCardView.UserAddressEntry" parent="GeicoAppBaseTheme">
+        <item name="cardBackgroundColor">?geicoBackground</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="theme">@style/GeicoCardTheme</item>
+    </style>
+
+    <!-- STYLES FOR CONTAINERS -->
+
+    <style name="ContentWidthCentered">
+        <!-- Use this style to display a layout\fragment with width centered and fixed at contentWidth -->
+        <!-- contentWidth only applies on landscape or tablets so on phone portrait it just takes the whole parent -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- STYLES FOR IMAGE BUTTONS -->
+    <style name="ImageButtonDefault" parent="@style/Widget.AppCompat.ImageButton">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:paddingBottom">@dimen/default_padding_quarter</item>
+        <item name="android:paddingLeft">@dimen/default_padding_half</item>
+        <item name="android:paddingRight">@dimen/default_padding_half</item>
+        <item name="android:paddingTop">@dimen/default_padding_quarter</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/image_button</item>
+        <item name="android:minWidth">@dimen/image_button</item>
+    </style>
+
+    <!-- STYLES FOR SPINNERS -->
+
+    <style name="UnderlinedSpinner" parent="Base.Widget.AppCompat.Spinner.Underlined" />
+
+    <style name="LimitUnderlinedSpinnerWidth" parent="UnderlinedSpinner">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!-- General Styles -->
+    <style name="Body3.Bulleted">
+        <item name="android:drawableLeft">@drawable/fa_check_small</item>
+        <item name="android:drawablePadding">@dimen/default_padding</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/default_padding_half</item>
+    </style>
+
+    <style name="GravityHorizontal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/default_padding</item>
+        <item name="android:layout_marginBottom">@dimen/default_padding</item>
+    </style>
+
+    <style name="QuoteRecallPremiumText" parent="@style/Title" />
+
+    <!-- Styles for Learn More and Tutorial Pages -->
+    <style name="LearnMoreText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="LearnMoreTextBold" parent="LearnMoreText">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LearnMoreTextWhite" parent="TutorialText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Bulleted" parent="LearnMoreText">
+        <item name="android:drawableStart">@drawable/blue_bullet_point</item>
+        <item name="android:drawablePadding">@dimen/default_padding_half</item>
+    </style>
+
+    <style name="Checked" parent="@style/Bulleted">
+        <item name="android:drawableStart">@drawable/learn_more_tutorial_check_mark</item>
+    </style>
+
+    <style name="PhotoEstimateThumbnailText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+
+    <style name="TutorialBulleted" parent="TutorialText">
+        <item name="android:drawableStart">@drawable/tutorial_bullet_point</item>
+        <item name="android:drawablePadding">@dimen/default_padding_half</item>
+    </style>
+
+    <style name="TutorialChecked" parent="TutorialText">
+        <item name="android:drawablePadding">@dimen/default_padding_half</item>
+        <item name="android:drawableStart">@drawable/ic_tutorial_checkmark</item>
+    </style>
+
+    <style name="TutorialImage">
+        <item name="android:layout_marginTop">@dimen/default_padding_three_quarter</item>
+        <item name="android:layout_marginBottom">@dimen/learn_more_padding</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="TutorialSubTextBold" parent="TutorialText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/subtitle</item>
+    </style>
+
+    <style name="TutorialText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin</item>
+        <item name="android:textColor">@color/midnight</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:lineSpacingExtra">@dimen/default_padding_quarter</item>
+    </style>
+
+    <style name="TutorialTextBold" parent="TutorialText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/title_large</item>
+    </style>
+
+    <style name="TutorialTextBoldSubtitle" parent="TutorialText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/subtitle</item>
+    </style>
+
+    <!-- Style for EditTexts -->
+    <style name="PhoneEditText">
+        <item name="android:inputType">number</item>
+        <item name="android:digits">"0123456789-() "</item>
+        <item name="android:maxLength">@integer/phone_number_length</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="SwitchTheme" parent="Theme.AppCompat.Light">
+        <item name="android:track">@drawable/score_sharing_switch_track</item>
+        <item name="android:thumb">@drawable/score_sharing_switch_thumb</item>
+    </style>
+
+    <style name="TelematicsConfirmationCodeEditText">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/edit_text_box_border</item>
+    </style>
+
+    <!-- Style for Weather Alerts -->
+    <style name="WeatherLearnMoreText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin</item>
+        <item name="android:textColor">@color/midnight</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:lineSpacingExtra">@dimen/default_padding_quarter</item>
+    </style>
+
+    <style name="WeatherLearnMoreTextBold" parent="WeatherLearnMoreText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+    <style name="WeatherLearnMoreSubHeaderTextBold" parent="WeatherLearnMoreText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/subtitle</item>
+    </style>
+
+    <!-- Overridden Styles of CCC SDK-->
+    <style name="primary_button_style" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:background">@drawable/photo_estimate_use_photo</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="submit_button" parent="primary_button_style" />
+
+    <style name="MenuThreeDotsWhiteTheme" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/white</item>
+    </style>
+</resources>
