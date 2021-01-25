@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_settings_navigation_graph"
+    app:startDestination="@id/login_settings_fragment">
+
+    <fragment
+        android:id="@+id/login_settings_fragment"
+        android:name="com.geico.mobile.android.ace.geicoapppresentation.loginsettings.mvvm.view.AceLoginSettingsFragment"
+        android:label="LoginSettingsFragment"
+        tools:layout="@layout/new_login_settings_fragment">
+
+        <action
+            android:id="@+id/action_login_settings_fragment_to_login_settings_user_id_fragment"
+            app:destination="@id/login_settings_user_id_fragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/login_settings_user_id_fragment"
+        android:name="com.geico.mobile.android.ace.geicoapppresentation.loginsettings.mvvm.view.AceLoginSettingsUserIdFragment"
+        android:label="LoginSettingsUserIdFragment"
+        tools:layout="@layout/new_login_settings_user_id_fragment" />
+</navigation>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoapppresentation.loginsettings.mvvm.model.AceLoginSettingsModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/loginSettingsUserIdError"
+            layout="@layout/error_message_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorText="@{model.errorMessages}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/loginSettingsUserIdLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:text="@string/enterANewUserID"
+            android:textAppearance="@style/Heading3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginSettingsUserIdError"
+            tools:ignore="HardcodedText"
+            tools:text="Enter a new User ID" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginSettingsUserIdLabel">
+
+            <View
+                android:id="@+id/dividerOne"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/half_dp_dimen"
+                android:background="@color/lightBeige"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_margin_half"
+                android:text="@{model.selectedSectionItem.label}"
+                android:textAppearance="@style/Heading4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerOne"
+                tools:text="User ID" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.33" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/loginSettingsText"
+                android:layout_width="@dimen/user_settings_text_edit_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:background="@null"
+                android:padding="@dimen/default_margin_half"
+                android:text="@={model.selectedSectionItem.text}"
+                android:textAppearance="@style/Heading4"
+                android:textStyle="normal"
+                app:isValid="@{model.selectedSectionItem.isValidField}"
+                app:layout_constraintStart_toEndOf="@id/guidelineOne"
+                app:layout_constraintTop_toBottomOf="@id/dividerOne"
+                tools:text="u-.900378349"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/dividerTwo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/half_dp_dimen"
+                android:background="@color/lightBeige"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginSettingsText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
