@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.geico.mobile.android.ace.geicoapppresentation.users.usersettings.mvvm.view.AceUserSettingsCallback" />
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoappmodel.userprofile.AceUserProfileVehicle" />
+
+        <variable
+            name="itemIndex"
+            type="String" />
+    </data>
+
+
+    <TextView
+        android:id="@+id/vehicleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@{`Vehicle Item Text ` + itemIndex}"
+        android:padding="@dimen/default_margin_half"
+        android:text="@{model.displayString}"
+        android:textAppearance="@style/Body3"
+        app:customTextStyle="@{itemIndex}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
+        tools:text="Vehicle Name" />
+
+</layout>
