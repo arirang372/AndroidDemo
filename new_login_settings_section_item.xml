@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="com.geico.mobile.android.ace.geicoapppresentation.loginsettings.mvvm.helpers.AceLoginSettingsDefinitions.EditLoginSettingsType" />
+
+        <variable
+            name="callback"
+            type="com.geico.mobile.android.ace.geicoapppresentation.loginsettings.mvvm.view.AceLoginSettingsCallback" />
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoapppresentation.loginsettings.mvvm.model.AceLoginSettingsSectionItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/right_and_left_inset_light_beige_line_divider_white_background"
+        android:clickable="@{model.position != EditLoginSettingsType.NOT_APPLICABLE}"
+        android:onClick="@{()-> callback.onLoginSettingsRowClicked(model.position)}"
+        android:paddingTop="@dimen/default_margin_half"
+        android:paddingBottom="@dimen/default_margin_half">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.label}"
+                android:textAppearance="@style/Heading4"
+                tools:text="@string/userIdText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{model.text}"
+                android:textAppearance="@style/Heading4"
+                android:textStyle="normal"
+                android:visibility="@{!TextUtils.isEmpty(model.text)}"
+                tools:text="krisjohnson1" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/nextPageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/default_margin"
+            android:visibility="@{model.position != EditLoginSettingsType.NOT_APPLICABLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/right"
+            app:tint="@color/geicoBlue" />
+
+        <Switch
+            style="@style/SwitchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/default_margin"
+            android:checked="@={model.isScreenUnlockEnabled}"
+            android:onCheckedChanged="@{(switch, checked) -> callback.onScreenUnlockSwitchToggled(checked)}"
+            android:visibility="@{model.position == EditLoginSettingsType.NOT_APPLICABLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
