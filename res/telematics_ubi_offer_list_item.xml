@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="callback"
+            type="com.geico.mobile.android.ace.geicoapppresentation.telematics.ubioffer.mvvm.view.AceTelematicsUbiOfferCallback" />
+
+        <variable
+            name="model"
+            type="com.geico.mobile.android.ace.geicoapppresentation.telematics.ubioffer.mvvm.model.AceTelematicsUbiOfferListItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/driveEasyLogo"
+            android:layout_width="@dimen/drive_easy_logo_width"
+            android:layout_height="@dimen/drive_easy_logo_height"
+            android:layout_marginTop="@dimen/default_margin_one_and_half"
+            android:contentDescription="Drive Logo"
+            android:visibility="@{model.shouldShowTopDriveEasyLogo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_drive_easy_stacked_blue"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/ubiOfferListItemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@{model.title}"
+            android:textAppearance="@style/Heading3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/driveEasyLogo"
+            tools:text="@string/getRewardForSafeDriverTitle" />
+
+        <TextView
+            android:id="@+id/UbiOfferListItemSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin_half"
+            android:text="@{model.subtitle}"
+            android:textAppearance="@style/Heading4"
+            android:textStyle="normal"
+            android:visibility="@{!TextUtils.isEmpty(model.subtitle) &amp; model.ubiOfferDetailItems.isEmpty()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ubiOfferListItemTitle"
+            tools:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ubiOfferDetailItemsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:visibility="@{!model.ubiOfferDetailItems.isEmpty()}"
+            app:callback="@{callback}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ubiOfferListItemTitle"
+            app:ubiOfferDetailItems="@{model.ubiOfferDetailItems}"
+            tools:listitem="@layout/telematics_ubi_offer_detail_item"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/enrollInDriveEasyButton"
+            style="@style/RoundedButton.Onboarding"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onEnrollInDriveEasyButtonClick()}"
+            android:text="@string/enrollInDriveEasy"
+            android:visibility="@{model.shouldShowEnrollInDriveEasyButton}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ubiOfferDetailItemsRecyclerView"
+            app:layout_constraintWidth_max="@dimen/telematics_card_max_width" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
